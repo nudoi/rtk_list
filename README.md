@@ -3,9 +3,10 @@
 ## インストール
 
 ```
-git clone git@github.com:nudoi/rtk_list.git
+git clone https://github.com/nudoi/rtk_list.git
 cd rtk_list/rtk_list
 npm install
+```
 
 ## 基準局一覧の取得
 
