@@ -1,0 +1,51 @@
+.map-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-header h1 {
+    margin: 0;
+}
+
+.back-link {
+    color: #2196F3;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #2196F3;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.back-link:hover {
+    background-color: #2196F3;
+    color: white;
+}
+
+.map-container {
+    flex: 1;
+    position: relative;
+}
+
+.loading,
+.error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.error {
+    color: #d32f2f;
+}

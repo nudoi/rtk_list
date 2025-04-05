@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet'
+import { Link } from 'react-router-dom'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import './App.css'
@@ -111,6 +112,9 @@ function App() {
   return (
     <div className="app">
       <h1>公開RTK基準局一覧</h1>
+      <div className="map-link">
+        <Link to="/map">全基準局を地図で表示</Link>
+      </div>
       <div className={`container ${!selectedStation ? 'centered' : ''}`}>
         <div className="list-container">
           <table>
