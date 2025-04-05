@@ -20,5 +20,5 @@ python get_list.py && cp rtk_stations.csv rtk_list/public/
 
 ```
 cd rtk_list
-npm start
+npm run start
 ```
