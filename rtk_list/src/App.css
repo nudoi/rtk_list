@@ -405,4 +405,63 @@ tr:hover {
 .map-link a:hover {
   background-color: #2196F3;
   color: white;
+  text-decoration: underline;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
+
+.powered-by {
+  text-align: center;
+  margin-top: 0.25rem;
+  padding: 0.25rem;
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.powered-by .logos {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+
+.powered-by .logo {
+  height: 2em;
+  padding: 0.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.powered-by .logo.react {
+  height: 4em;
+  padding: 0.5em;
+  margin-left: -0.75rem;
+}
+
+.powered-by .logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.powered-by .logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
