@@ -139,7 +139,7 @@ function App() {
           </table>
         </div>
         {selectedStation && (
-          <div className="details-container">
+          <div className={`details-container ${window.innerWidth <= 768 ? 'selected' : ''}`}>
             <div className="details-header">
               <h2>詳細情報</h2>
               <div className="header-buttons">

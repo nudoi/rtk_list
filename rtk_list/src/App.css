@@ -66,6 +66,15 @@ h1 {
   z-index: 2;
   background-color: white;
   padding: 1rem 0;
+  font-size: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem !important;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+  }
 }
 
 .content {
@@ -128,11 +137,23 @@ h1 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+.details-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  padding-right: 1rem;
 }
 
 .header-buttons {
   display: flex;
   gap: 0.5rem;
+  margin-left: auto;
 }
 
 .toggle-button {
@@ -150,20 +171,22 @@ h1 {
   background-color: #45a049;
 }
 
-.details-header h2 {
-  margin: 0;
-  font-size: 1.5em;
-}
-
 .close-button {
   background: none;
   border: none;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   cursor: pointer;
   color: #666;
-  padding: 5px 10px;
+  padding: 0.25rem;
   border-radius: 4px;
   transition: background-color 0.2s;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: -0.5rem;
 }
 
 .close-button:hover {
@@ -202,9 +225,11 @@ h1 {
 @media (max-width: 768px) {
   .content {
     flex-direction: column;
+    width: 100%;
   }
 
   .station-list {
+    width: 100%;
     max-width: 100%;
   }
 
@@ -212,6 +237,40 @@ h1 {
     position: relative;
     top: 0;
     margin-top: 1rem;
+    width: 100%;
+    background-color: white;
+  }
+
+  .station-details.selected {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 1rem;
+    background-color: white;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .container .details-container.selected {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    margin: 0;
+    padding: 1rem;
+    background-color: white;
+    overflow-y: auto;
+    width: 100%;
+  }
+
+  .container .details-container.selected~.list-container {
+    display: none;
   }
 
   .detail-row {
@@ -221,6 +280,35 @@ h1 {
 
   .detail-label {
     min-width: auto;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .list-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .details-container {
+    width: 100%;
+    background-color: white;
+  }
+
+  .details-header {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .map-container {
+    height: 200px;
+  }
+
+  .map-container .leaflet-container {
+    height: 200px;
   }
 }
 
