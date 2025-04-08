@@ -5,29 +5,61 @@
 }
 
 .map-header {
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #dee2e6;
 }
 
 .map-header h1 {
     margin: 0;
+    font-size: 1.5rem;
+}
+
+.radius-controls {
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.radius-buttons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.radius-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 100px;
+}
+
+.radius-button:hover {
+    background-color: #f8f9fa;
+}
+
+.radius-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
 }
 
 .back-link {
-    color: #2196F3;
     text-decoration: none;
+    color: #007bff;
     padding: 0.5rem 1rem;
-    border: 1px solid #2196F3;
+    border: 1px solid #007bff;
     border-radius: 4px;
-    transition: all 0.3s;
+    transition: all 0.2s;
 }
 
 .back-link:hover {
-    background-color: #2196F3;
+    background-color: #007bff;
     color: white;
 }
 
@@ -36,16 +68,19 @@
     position: relative;
 }
 
-.loading,
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+}
+
 .error {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.error {
-    color: #d32f2f;
+    color: red;
+    font-size: 1.5rem;
 }
