@@ -45,6 +45,7 @@ function App() {
   const [initialLoad, setInitialLoad] = useState(true);
   const [showGreenCircle, setShowGreenCircle] = useState(false);
   const [showBlueCircle, setShowBlueCircle] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -105,6 +106,14 @@ function App() {
     setShowBlueCircle(!showBlueCircle);
   };
 
+  const filteredStations = stations.filter(station => {
+    const query = searchQuery.toLowerCase();
+    return (
+      station.場所.toLowerCase().includes(query) ||
+      station.局名.toLowerCase().includes(query)
+    );
+  });
+
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -114,6 +123,15 @@ function App() {
       <h1>公開RTK基準局一覧</h1>
       <div className="map-link">
         <Link to="/map">全基準局を地図で表示</Link>
+      </div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="場所や局名で検索..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-input"
+        />
       </div>
       <div className={`container ${!selectedStation ? 'centered' : ''}`}>
         <div className="list-container">
@@ -125,7 +143,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {stations.map((station, index) => (
+              {filteredStations.map((station, index) => (
                 <tr
                   key={index}
                   onClick={() => handleStationClick(station)}
