@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
@@ -48,6 +48,9 @@
   display: flex;
   gap: 0;
   position: relative;
+  min-height: 0;
+  flex: 1;
+  height: auto;
 }
 
 .container.centered {
@@ -313,21 +316,38 @@ h1 {
 }
 
 .app {
-  padding: 20px;
+  padding: 0 20px 20px;
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: auto;
 }
 
 .list-container {
   flex: 1;
   max-width: 40%;
   overflow-x: auto;
+  display: table;
+  height: auto;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  height: auto;
+  display: table;
+}
+
+tbody {
+  background-color: white;
+  display: table-row-group;
+}
+
+tr {
+  cursor: pointer;
+  display: table-row;
 }
 
 th,
@@ -335,6 +355,7 @@ td {
   padding: 12px;
   text-align: left;
   border-bottom: 1px solid #ddd;
+  display: table-cell;
 }
 
 th {
@@ -507,16 +528,15 @@ tr:hover {
 
 .copyright {
   text-align: center;
-  margin-top: 2rem;
   padding: 0.5rem;
   color: #666;
   font-size: 0.9rem;
   border-top: 1px solid #eee;
+  margin-top: 1rem;
 }
 
 .powered-by {
   text-align: center;
-  margin-top: 0.25rem;
   padding: 0.25rem;
   color: #666;
   font-size: 0.9rem;
@@ -524,6 +544,7 @@ tr:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  margin-top: 0;
 }
 
 .powered-by .logos {
@@ -556,13 +577,20 @@ tr:hover {
 
 .search-container {
   margin: 0 auto 20px;
-  max-width: 600px;
+  max-width: 80%;
   padding: 0 20px;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .search-input {
   width: 100%;
   padding: 12px;
+  padding-right: 40px;
   font-size: 16px;
   border: 2px solid #ddd;
   border-radius: 8px;
@@ -576,4 +604,29 @@ tr:hover {
 
 .search-input::placeholder {
   color: #999;
+}
+
+.search-clear-button {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  margin: 0;
+  line-height: 1;
+}
+
+.search-clear-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
 }

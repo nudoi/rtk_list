@@ -52,7 +52,7 @@ function App() {
       try {
         const response = await fetch('/rtk_stations.csv');
         const text = await response.text();
-        const lines = text.split('\n');
+        const lines = text.split('\n').filter(line => line.trim());
         const headers = lines[0].split(',');
 
         const data = lines.slice(1)
@@ -69,7 +69,8 @@ function App() {
             const longA = parseFloat(a.東経) || 0;
             const longB = parseFloat(b.東経) || 0;
             return longB - longA; // 降順（東から西へ）
-          });
+          })
+          .filter(station => station.場所 && station.局名);
 
         setStations(data);
         setLoading(false);
@@ -125,13 +126,24 @@ function App() {
         <Link to="/map">全基準局を地図で表示</Link>
       </div>
       <div className="search-container">
-        <input
-          type="text"
-          placeholder="場所や局名で検索..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="search-input"
-        />
+        <div className="search-input-wrapper">
+          <input
+            type="text"
+            placeholder="場所や局名で検索..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          {searchQuery && (
+            <button
+              className="search-clear-button"
+              onClick={() => setSearchQuery('')}
+              aria-label="検索をクリア"
+            >
+              ×
+            </button>
+          )}
+        </div>
       </div>
       <div className={`container ${!selectedStation ? 'centered' : ''}`}>
         <div className="list-container">
